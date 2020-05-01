@@ -15,7 +15,8 @@ local function insertion_sort(vet)
     end
     vet[j+1] = aux
   end
-  return vet  
+  
+  return vet
 end
 
 -- return module

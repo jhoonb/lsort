@@ -17,7 +17,7 @@ table.sort(vetok)
 --  run_test running test
 local function run_test(f, name_f)
   print("testing function: " .. name_f)
-        
+
   local starttime = clock()
   local resp = f(vet)
   local endtime = clock()

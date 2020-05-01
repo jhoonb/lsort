@@ -11,7 +11,7 @@ local function bubble_sort(vet)
     local swapped = false
     for i = 1, #vet - 1 do
       -- verificar se os elementos estão na ordem certa
-      if vet[i] > vet[i+1] then 
+      if vet[i] > vet[i+1] then
         -- se true: trocar elementos de lugar
         vet[i], vet[i+1] = vet[i+1], vet[i]
         swapped = true
@@ -19,7 +19,7 @@ local function bubble_sort(vet)
     end
   -- enquanto houver elementos sendo reordenados.
   until not swapped
-  return vet 
+  return vet
 end
 
 -- return module

@@ -11,17 +11,17 @@ local newarray = utils.newarray
 -- return: table, novo array ordenado
 ---------------------------------------------------------------------
 local function counting_sort(vet)
-  -- encontra o maior valor em vet	
+  -- encontra o maior valor em vet
   local _, max = minmax(vet)
 
   -- cria array auxiliar tamanho max e elemento valor 0
   local aux = newarray(max, 0)
   -- conta quantas vezes cada valor em vet aparece
   for i = 1, #vet do aux[vet[i]] = aux[vet[i]] + 1 end
-  -- acumula as vezes de cada elemento de vet com os elementos 
+  -- acumula as vezes de cada elemento de vet com os elementos
   -- anteriores a este
   for i = 2, #aux do aux[i] = aux[i] + aux[i-1] end
-  -- cria array de saída (o array ordenado) 
+  -- cria array de saída (o array ordenado)
   nvet = newarray(#vet, 0)
   -- adiciona os elementos em suas posições conforme o acumulo
   --  de suas frequencias
@@ -29,7 +29,7 @@ local function counting_sort(vet)
     nvet[aux[vet[i]]] = vet[i]
     aux[vet[i]] = aux[vet[i]] - 1
   end
-  
+
   return nvet
 end
 

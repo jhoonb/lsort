@@ -7,12 +7,12 @@
 -- return: table, novo array ordenado
 ---------------------------------------------------------------------
 local selection_sort = function(vet)
-  for i = 1, #vet do 
+  for i = 1, #vet do
     local min = i
-    for j = i+1, #vet do 
+    for j = i+1, #vet do
       if vet[j] < vet[min] then min = j end
     end
-    if vet[i] ~= vet[min] then 
+    if vet[i] ~= vet[min] then
       vet[i], vet[min] = vet[min], vet[i]
     end
   end
