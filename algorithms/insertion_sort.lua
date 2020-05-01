@@ -1,10 +1,10 @@
 --
 -- insertion_sort(vet) Insertion Sort
 -- https://pt.wikipedia.org/wiki/Insertion_sort
--- pior caso O(n^2) -- estável
+-- pior caso O(n^2) -- estável -- in-place
 ---------------------------------------------------------------------
 -- param vet: table, array a ser ordenado
--- return: table, novo array ordenado
+-- return
 ---------------------------------------------------------------------
 local function insertion_sort(vet)
   for i = 2, #vet do
@@ -15,8 +15,6 @@ local function insertion_sort(vet)
     end
     vet[j+1] = aux
   end
-  
-  return vet
 end
 
 -- return module

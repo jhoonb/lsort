@@ -5,12 +5,13 @@
 --[[
     functions:
 
-    utils.jointables(t[, ...])                      --> table
+    utils.jointables(t[, ...])                      --> in-place
     utils.slicetable(t[, ibegin[, iend[, step] ] ]) --> table
     utils.minmax(vet)                               --> number, number
     utils.newarray(size[, value])                   --> table
     utils.newarrayrandom(size[, m[, n] ])           --> table
     utils.cmp(veti, vetj)                           --> boolean
+    utils.copy(vet)                                 --> table
 
 --]]
 
@@ -23,17 +24,17 @@ local _randomseed = math.randomseed
 local _time = os.time
 
 --
--- jointables(t[, ...]) concate várias tabelas ao final de t
+-- jointables(t[, ...]) concate várias tabelas ao final de t (in-place)
 -- Ex.:
 -- t = {1, 2}
--- jointables(t) --> {1, 2}
--- jointables(t, {3, 4}) --> {1, 2, 3, 4}
--- jointables(t, {3, 4}, {5}) --> {1, 2, 3, 4, 5}
--- jointables(t, {3, 4}, {5}, {6, 7}) --> {1, 2, 3, 4, 5, 6, 7}
+-- jointables(t) --> t = {1, 2}
+-- jointables(t, {3, 4}) --> t = {1, 2, 3, 4}
+-- jointables(t, {3, 4}, {5}) --> t = {1, 2, 3, 4, 5}
+-- jointables(t, {3, 4}, {5}, {6, 7}) --> t = {1, 2, 3, 4, 5, 6, 7}
 ---------------------------------------------------------------------
 -- param t: table
 -- param ...: tables
--- return: table
+-- return
 ---------------------------------------------------------------------
 utils.jointables = function(t, ...)
     for _, v in _ipairs({...}) do
@@ -41,7 +42,6 @@ utils.jointables = function(t, ...)
         t[#t+1] = v[j]
       end
     end
-    return t
   end
 
 
@@ -65,9 +65,7 @@ utils.slicetable = function(t, ibegin, iend, step)
     local iend = iend or #t
     local step = step or 1
     local nt = {}
-
     for i = ibegin, iend, step do nt[#nt+1] = t[i] end
-
     return nt
   end
 
@@ -126,7 +124,6 @@ end
 ---------------------------------------------------------------------
 utils.newarrayrandom = function(size, m, n)
     _randomseed(_time())
-
     local m = m or 1
     local n = n or 1000
     local arr = {}
@@ -147,12 +144,31 @@ utils.newarrayrandom = function(size, m, n)
 -- return boolean
 ---------------------------------------------------------------------
 utils.cmp = function(veti, vetj)
-    if #veti ~= #vetj then return false end
+  
+  local function pprint(i, j, k) print(
+    'i: ' .. i .. '|value veti: ' .. j .. '|value vetj: ' .. k) 
+  end
+
+  if #veti ~= #vetj then return false end
     for i=1, #veti do
-       if veti[i] ~= vetj[i] then return false end
+      -- pprint(i, veti[i], vetj[i])
+      if veti[i] ~= vetj[i] then pprint(i, veti[i], vetj[i]); return false end
     end
-    return true
- end
+  return true
+end
+
+
+--
+-- copy(vet) retorna uma copia valor por valor do array vet
+---------------------------------------------------------------------
+-- param vet: table
+-- return table
+---------------------------------------------------------------------
+utils.copy = function(vet)
+  local newvet = {}
+  for i=1, #vet do newvet[#newvet+1] = vet[i] end
+  return newvet
+end
 
 
 -- return module

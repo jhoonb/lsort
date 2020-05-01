@@ -5,32 +5,42 @@
 local lsort = require('lsort')
 local utils = require('algorithms.utils')
 local clock = os.clock
-
--- 30 mil
-local vet = utils.newarrayrandom(30000)
--- copy
-local vetok = {}; for i=1, #vet do vetok[#vetok+1] = vet[i] end
--- sorted in-place
-table.sort(vetok)
+local sort = table.sort
 
 
 --  run_test running test
-local function run_test(f, name_f)
-  print("testing function: " .. name_f)
+local function run_test(f, name_f, algorithm_type)
+  local algorithm_type  = algorithm_type  or 'new table'
+  -- 10 mil
+  local vet = utils.newarrayrandom(10000)
+  -- copy
+  local vetok = utils.copy(vet)
+  -- sorted in-place
+  sort(vetok)
+
+  print("testing function: " .. name_f .. " | algorithm_type: " .. algorithm_type)
 
   local starttime = clock()
-  local resp = f(vet)
+
+  if algorithm_type == 'in-place' then f(vet)
+  else vet = f(vet) end
+
   local endtime = clock()
   --print(table.unpack(resp))
-  assert(utils.cmp(resp, vetok), 'algorithm ' .. name_f)
+  assert(utils.cmp(vet, vetok), 'algorithm ' .. name_f)
   local finaltime = string.format("Time: %gs\n", endtime-starttime)
   print("Tested with success! " .. finaltime .. "\n")
 end
 
--- test
-run_test(lsort.counting_sort, 'counting_sort')
-run_test(lsort.insertion_sort, 'insertion_sort')
---run_test(lsort.bubble_sort, 'bubble_sort')
---run_test(lsort.selection_sort, 'selection_sort')
---run_test(lsort.merge_sort, 'merge_sort')
---run_test(lsort.quick_sort, 'quick_sort')
+-- test 1x
+for i=1, 1 do
+  run_test(lsort.counting_sort, 'counting_sort')
+  run_test(lsort.insertion_sort, 'insertion_sort', 'in-place')
+  run_test(lsort.bubble_sort, 'bubble_sort', 'in-place')
+  run_test(lsort.selection_sort, 'selection_sort', 'in-place')
+  run_test(lsort.merge_sort, 'merge_sort', 'in-place')
+  run_test(lsort.quick_sort, 'quick_sort', 'in-place')
+  run_test(lsort.gnome_sort, 'gnome_sort', 'in-place')
+  run_test(lsort.cocktail_sort, 'cocktail_sort', 'in-place')
+  run_test(lsort.odd_even_sort, 'odd_even_sort', 'in-place')
+end

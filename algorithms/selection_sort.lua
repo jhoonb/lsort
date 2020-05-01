@@ -1,10 +1,10 @@
 --
 -- selection_sort(vet) Selection Sort
 -- https://pt.wikipedia.org/wiki/Selection_sort
--- pior caso O(n^2) -- não-estável
+-- pior caso O(n^2) -- não-estável -- in-place
 ---------------------------------------------------------------------
 -- param vet: table, array a ser ordenado
--- return: table, novo array ordenado
+-- return
 ---------------------------------------------------------------------
 local selection_sort = function(vet)
   for i = 1, #vet do
@@ -16,8 +16,6 @@ local selection_sort = function(vet)
       vet[i], vet[min] = vet[min], vet[i]
     end
   end
-
-  return vet
 end
 
 -- return module

@@ -3,10 +3,10 @@ local slicetable = require("algorithms.utils").slicetable
 --
 -- merge_sort(vet) Merge Sort
 -- https://pt.wikipedia.org/wiki/Merge_sort
--- pior caso O(n log n) -- estável
+-- pior caso O(n log n) -- estável -- in-place
 ---------------------------------------------------------------------
 -- param vet: table, array a ser ordenado
--- return: table, novo array ordenado
+-- return
 ---------------------------------------------------------------------
 local function merge_sort(vet)
   if #vet > 1 then
@@ -19,7 +19,7 @@ local function merge_sort(vet)
 
     local i, j, k = 1, 1, 1
 
-    while i < #left_vet and j < #right_vet do
+    while i <= #left_vet and j <= #right_vet do
       if left_vet[i] < right_vet[j] then
         vet[k] = left_vet[i]
         i = i + 1
@@ -42,8 +42,6 @@ local function merge_sort(vet)
       k = k + 1
     end
   end
-
-  return vet
 end
 
 -- return module
