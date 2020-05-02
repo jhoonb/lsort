@@ -1,7 +1,7 @@
 --
 -- insertion_sort(vet) Insertion Sort
 -- https://pt.wikipedia.org/wiki/Insertion_sort
--- pior caso O(n^2) -- estável -- in-place
+-- Worst-case O(n^2) -- Stable -- in-place
 ---------------------------------------------------------------------
 -- param vet: table, array a ser ordenado
 -- return

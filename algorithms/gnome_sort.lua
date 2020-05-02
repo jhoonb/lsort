@@ -1,9 +1,9 @@
 --
 -- gnome_sort(vet) Gnome Sort
 -- https://en.wikipedia.org/wiki/Gnome_sort
--- pior caso O(n^2) -- estável -- in-place
+-- Worst-case O(n^2) -- Stable -- in-place
 ---------------------------------------------------------------------
--- param vet: table, array a ser ordenado
+-- param vet: table, array
 -- return
 ---------------------------------------------------------------------
 local function gnome_sort(vet)

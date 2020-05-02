@@ -12,7 +12,10 @@ Sorting algorithm in Lua - Algoritmos de Ordenação em Lua
 * [Gnome Sort](https://github.com/jhoonb/lsort/blob/master/algorithms/gnome_sort.lua)
 * [Cocktail Sort](https://github.com/jhoonb/lsort/blob/master/algorithms/cocktail_sort.lua)
 * [Odd-even Sort](https://github.com/jhoonb/lsort/blob/master/algorithms/odd_even_sort.lua)
+* [Pigeonhole Sort](https://github.com/jhoonb/lsort/blob/master/algorithms/pigeonhole_sort.lua)
+* [Radix Sort](https://github.com/jhoonb/lsort/blob/master/algorithms/radix_sort.lua)
 
+  
 Module [utils.lua](https://github.com/jhoonb/lsort/blob/master/algorithms/utils.lua). Functions:
 ====
 

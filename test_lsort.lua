@@ -32,8 +32,8 @@ local function run_test(f, name_f, algorithm_type)
   print("Tested with success! " .. finaltime .. "\n")
 end
 
--- test 1x
-for i=1, 1 do
+-- test 10x
+for i=1, 10 do
   run_test(lsort.counting_sort, 'counting_sort')
   run_test(lsort.insertion_sort, 'insertion_sort', 'in-place')
   run_test(lsort.bubble_sort, 'bubble_sort', 'in-place')
@@ -43,4 +43,6 @@ for i=1, 1 do
   run_test(lsort.gnome_sort, 'gnome_sort', 'in-place')
   run_test(lsort.cocktail_sort, 'cocktail_sort', 'in-place')
   run_test(lsort.odd_even_sort, 'odd_even_sort', 'in-place')
+  run_test(lsort.pigeonhole_sort, 'pigeonhole_sort', 'in-place')
+  run_test(lsort.radix_sort, 'radix_sort', 'in-place')
 end

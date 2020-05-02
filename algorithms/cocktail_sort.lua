@@ -1,9 +1,9 @@
   --
   -- cocktail_sort(vet) Cocktail Sort
   -- https://en.wikipedia.org/wiki/Cocktail_shaker_sort
-  -- pior caso O(n^2) -- estável -- in-place
+  -- Worst-case O(n^2) -- Stable -- in-place
   ---------------------------------------------------------------------
-  -- param vet: table, array a ser ordenado
+  -- param vet: table, array
   -- return
   ---------------------------------------------------------------------
 local function cocktail_sort(vet)

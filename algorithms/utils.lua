@@ -144,6 +144,8 @@ utils.newarrayrandom = function(size, m, n)
 -- return boolean
 ---------------------------------------------------------------------
 utils.cmp = function(veti, vetj)
+
+  if #veti ~= #vetj then print('#veti ~= #vetj') ; return false end
   
   local function pprint(i, j, k) print(
     'i: ' .. i .. '|value veti: ' .. j .. '|value vetj: ' .. k) 

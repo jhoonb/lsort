@@ -17,6 +17,8 @@ lsort.counting_sort = require("algorithms.counting_sort") -- new table
 lsort.gnome_sort = require("algorithms.gnome_sort") -- in-place
 lsort.cocktail_sort = require("algorithms.cocktail_sort") -- in-place
 lsort.odd_even_sort = require("algorithms.odd_even_sort") -- in-place
+lsort.pigeonhole_sort = require("algorithms.pigeonhole_sort") -- in-place
+lsort.radix_sort = require("algorithms.radix_sort") -- in-place
 
 -- return module
 return lsort

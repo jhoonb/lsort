@@ -1,11 +1,11 @@
 --
 -- quick_sort(vet[, ibegin[, iend] ]) Quick Sort
 -- https://pt.wikipedia.org/wiki/Quicksort
--- pior caso O(n^2) -- não-estável -- in-place
+-- Worst-case O(n^2) -- Not Stable -- in-place
 ---------------------------------------------------------------------
--- param vet: table, array a ser ordenado
--- param ibegin: number, opcional
--- param iend: number, opcional
+-- param vet: table, array
+-- param ibegin: number, optional
+-- param iend: number, optional
 -- return
 ---------------------------------------------------------------------
 local function quick_sort(vet, ibegin, iend)
@@ -30,7 +30,6 @@ local function quick_sort(vet, ibegin, iend)
   if i < iend then quick_sort(vet, i, iend) end 
 
 end
-
 
 -- return module
 return quick_sort

@@ -5,10 +5,10 @@ local newarray = utils.newarray
 --
 -- counting_sort(vet) Counting Sort
 -- https://pt.wikipedia.org/wiki/Counting_sort
--- pior caso O(n+k) -- estável -- usa memória auxilar
+-- Worst-case O(n+k) -- Stable -- not-in-place
 ---------------------------------------------------------------------
--- param vet: table, array a ser ordenado
--- return: table, novo array ordenado
+-- param vet: table, array
+-- return: table, new array
 ---------------------------------------------------------------------
 local function counting_sort(vet)
   -- encontra o maior valor em vet
